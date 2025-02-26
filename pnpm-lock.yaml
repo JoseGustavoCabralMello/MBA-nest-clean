@@ -32,6 +32,9 @@ importers:
       bcryptjs:
         specifier: ^3.0.2
         version: 3.0.2
+      dotenv:
+        specifier: ^16.4.7
+        version: 16.4.7
       passport-jwt:
         specifier: ^4.0.1
         version: 4.0.1
