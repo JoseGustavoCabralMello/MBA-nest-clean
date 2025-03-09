@@ -21,6 +21,8 @@ describe('Fetch Answer Comments', () => {
   it('should be able to fetch answer comments', async () => {
     const student = makeStudent({ name: 'John Doe' })
 
+    inMemoryStudentsRepository.items.push(student)
+
     const comment1 = makeAnswerComment({
       answerId: new UniqueEntityID('answer-1'),
       authorId: student.id,
@@ -39,12 +41,6 @@ describe('Fetch Answer Comments', () => {
     await inMemoryAnswerCommentsRepository.create(comment1)
     await inMemoryAnswerCommentsRepository.create(comment2)
     await inMemoryAnswerCommentsRepository.create(comment3)
-
-    await inMemoryAnswerCommentsRepository.create(
-      makeAnswerComment({
-        answerId: new UniqueEntityID('answer-1'),
-      }),
-    )
 
     const result = await sut.execute({
       answerId: 'answer-1',
